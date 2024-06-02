@@ -1,0 +1,103 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  Changes:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    outputs:
+      ChangedProjects: ${{ steps.interrogate.outputs.ChangedProjects }}
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup-tooling
+        with:
+          SetupCommand: ./setup.sh
+      - uses: ./.github/actions/setup-yarn
+      - uses: ./.github/actions/setup-golang
+
+      - id: interrogate
+        uses: ./.github/actions/nx-release-please
+        with:
+          GithubRepository: ${{ github.repository }}
+          GithubToken: ${{ secrets.GITHUB_TOKEN }}
+          WorkspaceJsonFilePath: ${{ github.workspace }}/workspace.json
+
+  Process:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    needs: Changes
+
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{fromJson(needs.Changes.outputs.ChangedProjects)}}
+
+    name: Process ${{ matrix.package }}
+
+
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: tag-release
+        with:
+          path: ${{ matrix.package }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: go
+          monorepo-tags: true
+          package-name: ${{ matrix.package }}
+          command: github-release
+          bump-patch-for-minor-pre-major: true
+          bump-minor-pre-major: true
+          separate-pull-requests: false
+
+      - uses: actions/checkout@v2
+        if: ${{ steps.tag-release.outputs.releases_created }}
+
+  Release:
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    needs:
+      - Changes
+      - Process
+
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{fromJson(needs.Changes.outputs.ChangedProjects)}}
+
+    name: Release ${{ matrix.package }}
+
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release-please
+        with:
+          path: ${{ matrix.package }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: go
+          package-name: ${{ matrix.package }}
+          monorepo-tags: true
+          command: release-pr
+          separate-pull-requests: false
