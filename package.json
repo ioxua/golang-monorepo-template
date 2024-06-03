@@ -23,6 +23,6 @@
   "private": true,
   "packageManager": "yarn@4.2.2",
   "scripts": {
-    "prepare": "husky"
+    "prepare": "node .husky/install.mjs"
   }
 }
