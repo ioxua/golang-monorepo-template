@@ -20,7 +20,7 @@ const {execSync} = require('child_process');
   */
 function getChangedProjects ({ comparisonRef, core }) {
   const projects = execSync(
-    `yarn nx print-affected --base=${comparisonRef} --select=projects`,
+    `corepack yarn nx print-affected --base=${comparisonRef} --select=projects`,
     { encoding: 'utf-8'}
   )
 

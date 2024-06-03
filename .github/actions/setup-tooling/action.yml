@@ -12,15 +12,15 @@ runs:
   using: "composite"
 
   steps:
-    - name: Ensure setup command available
-      shell: bash
-      env:
-        SETUP_COMMAND: ${{inputs.SetupCommand}}
-      run: |
-        if [ ! -f ${SETUP_COMMAND} ]; then
-          echo "🛑 Missing action input SetupCommand."
-          exit 1
-        fi
+    # - name: Ensure setup command available
+    #   shell: bash
+    #   env:
+    #     SETUP_COMMAND: ${{inputs.SetupCommand}}
+    #   run: |
+    #     if [ ! -f ${SETUP_COMMAND} ]; then
+    #       echo "🛑 Missing action input SetupCommand."
+    #       exit 1
+    #     fi
 
     - uses: actions/cache@v3
       id: asdf-cache
@@ -30,19 +30,22 @@ runs:
         restore-keys: |
           ${{ runner.os }}-asdf-
 
-    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+    - uses: asdf-vm/actions/install@v3.0.2
       if: steps.asdf-cache.outputs.cache-hit != 'true'
-      shell: bash
 
-    - name: asdf install
-      if: steps.asdf-cache.outputs.cache-hit != 'true'
-      shell: bash
-      env:
-        SETUP_COMMAND: ${{inputs.SetupCommand}}
-      run: ${SETUP_COMMAND}
+    # - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+    #   if: steps.asdf-cache.outputs.cache-hit != 'true'
+    #   shell: bash
 
-    - name: set asdf path
-      shell: bash
-      run: |
-        echo "$HOME/.asdf/bin" >> $GITHUB_PATH
-        echo "$HOME/.asdf/shims" >> $GITHUB_PATH
+    # - name: asdf install
+    #   if: steps.asdf-cache.outputs.cache-hit != 'true'
+    #   shell: bash
+    #   env:
+    #     SETUP_COMMAND: ${{inputs.SetupCommand}}
+    #   run: ${SETUP_COMMAND}
+
+    # - name: set asdf path
+    #   shell: bash
+    #   run: |
+    #     echo "$HOME/.asdf/bin" >> $GITHUB_PATH
+    #     echo "$HOME/.asdf/shims" >> $GITHUB_PATH
