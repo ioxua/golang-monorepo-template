@@ -3,7 +3,7 @@ name: CodeReview
 on:
   pull_request:
     branches:
-      - master
+      - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -30,7 +30,7 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
         with:
-          main-branch-name: master
+          main-branch-name: main
 
       - uses: ./.github/actions/setup-tooling
         with:

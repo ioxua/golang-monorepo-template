@@ -4,7 +4,7 @@
     "@nx-go/nx-go"
   ],
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "workspaceLayout": {
     "appsDir": "apps",
