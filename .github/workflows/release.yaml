@@ -9,6 +9,8 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+# TODO(ioxua): we could maybe replace release-please with `nx release`:
+# https://nx.dev/recipes/nx-release/automate-github-releases
 jobs:
   Changes:
     runs-on: ubuntu-latest
@@ -60,8 +62,8 @@ jobs:
           path: ${{ matrix.package }}
           token: ${{ secrets.GITHUB_TOKEN }}
           skip-github-pull-request: true
-          config-file: ./devops/release-please-config.json
-          manifest-file: ./devops/release-please-manifest.json
+          config-file: devops/release-please-config.json
+          manifest-file: devops/release-please-manifest.json
 
       - uses: actions/checkout@v2
         if: ${{ steps.tag-release.outputs.releases_created == 'true' }}
@@ -91,5 +93,5 @@ jobs:
           path: ${{ matrix.package }}
           token: ${{ secrets.GITHUB_TOKEN }}
           skip-github-release: true
-          config-file: ./devops/release-please-config.json
-          manifest-file: ./devops/release-please-manifest.json
+          config-file: devops/release-please-config.json
+          manifest-file: devops/release-please-manifest.json
