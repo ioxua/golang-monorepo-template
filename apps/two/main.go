@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/airtonix/golang-monorepo-nx/packages/health"
-	"github.com/airtonix/golang-monorepo-nx/packages/ping"
 	"github.com/gin-gonic/gin"
+	"github.com/ioxua/golang-monorepo-template/packages/health"
+	"github.com/ioxua/golang-monorepo-template/packages/ping"
 )
 
 func main() {
