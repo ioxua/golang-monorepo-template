@@ -37,6 +37,7 @@ jobs:
           GithubToken: ${{ secrets.GITHUB_TOKEN }}
           WorkspaceJsonFilePath: ${{ github.workspace }}/workspace.json
 
+  # Tagging?
   Process:
     runs-on: ubuntu-latest
 
@@ -52,27 +53,20 @@ jobs:
         package: ${{fromJson(needs.Changes.outputs.ChangedProjects)}}
 
     name: Process ${{ matrix.package }}
-
-
     steps:
-      - uses: google-github-actions/release-please-action@v3
+      - uses: googleapis/release-please-action@v4
         id: tag-release
         with:
           path: ${{ matrix.package }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: go
-          monorepo-tags: true
-          package-name: ${{ matrix.package }}
-          command: github-release
-          bump-patch-for-minor-pre-major: true
-          bump-minor-pre-major: true
-          separate-pull-requests: false
+          skip-github-pull-request: true
+          config-file: ./devops/release-please-config.json
+          manifest-file: ./devops/release-please-manifest.json
 
       - uses: actions/checkout@v2
-        if: ${{ steps.tag-release.outputs.releases_created }}
+        if: ${{ steps.tag-release.outputs.releases_created == 'true' }}
 
   Release:
-
     runs-on: ubuntu-latest
 
     permissions:
@@ -91,13 +85,11 @@ jobs:
     name: Release ${{ matrix.package }}
 
     steps:
-      - uses: google-github-actions/release-please-action@v3
+      - uses: googleapis/release-please-action@v4
         id: release-please
         with:
           path: ${{ matrix.package }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: go
-          package-name: ${{ matrix.package }}
-          monorepo-tags: true
-          command: release-pr
-          separate-pull-requests: false
+          skip-github-release: true
+          config-file: ./devops/release-please-config.json
+          manifest-file: ./devops/release-please-manifest.json

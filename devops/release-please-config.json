@@ -1,0 +1,16 @@
+{
+  "bootstrap-sha": "b8b91a34bcd9cfa139c9af0d9726e0517aed1192",
+  "include-component-in-tag": true,
+  "bump-patch-for-minor-pre-major": true,
+  "bump-minor-pre-major": true,
+  "separate-pull-requests": false,
+  "release-type": "go",
+  "packages": {
+    "apps/one": {
+      "package-name": "apps/one"
+    },
+    "apps/two": {
+      "package-name": "apps/two"
+    }
+  }
+}
