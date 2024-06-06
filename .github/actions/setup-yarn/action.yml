@@ -3,7 +3,7 @@ name: Setup Nodejs
 description: provisions tooling and installs dependancies
 
 runs:
-  # using: "composite"
+  using: 'composite'
 
   steps:
     - run: corepack enable
