@@ -7,6 +7,7 @@ runs:
 
   steps:
     - run: corepack enable
+      shell: bash
 
     - uses: actions/setup-node@v4
       with:
@@ -15,7 +16,7 @@ runs:
 
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
-      # shell: bash
+      shell: bash
       run: echo "dir=$(corepack yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
     - uses: actions/cache@v3
