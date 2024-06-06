@@ -14,6 +14,12 @@ runs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
 
+    - run: corepack yarn --version
+      shell: bash
+
+    - run: yarn --version
+      shell: bash
+
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
       shell: bash
