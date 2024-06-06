@@ -2,25 +2,20 @@ name: Setup Asdf
 
 description: provisions tooling
 
-inputs:
-  SetupCommand:
-    description: "Command to run"
-    required: false
-    default: './setup.bash'
+# inputs:
+#   SetupCommand:
+#     description: 'Command to run'
+#     required: false
+#     default: './setup.bash'
 
 runs:
-  using: "composite"
+  using: 'composite'
 
   steps:
-    # - name: Ensure setup command available
-    #   shell: bash
-    #   env:
-    #     SETUP_COMMAND: ${{inputs.SetupCommand}}
-    #   run: |
-    #     if [ ! -f ${SETUP_COMMAND} ]; then
-    #       echo "🛑 Missing action input SetupCommand."
-    #       exit 1
-    #     fi
+    - uses: jdx/mise-action@v2
+      with:
+        cache: true
+        install: true
 
     - uses: actions/cache@v3
       id: asdf-cache
