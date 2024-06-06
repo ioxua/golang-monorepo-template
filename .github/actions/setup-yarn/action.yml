@@ -6,13 +6,12 @@ runs:
   using: 'composite'
 
   steps:
+    # TODO(ioxua): fix the cache order!!
     # - uses: actions/setup-node@v4
     #   with:
     #     node-version-file: .tool-versions
     #     cache: 'yarn'
 
-    - run: corepack enable
-      shell: bash
     - run: corepack yarn --version
       shell: bash
 

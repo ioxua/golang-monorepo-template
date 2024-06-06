@@ -17,6 +17,9 @@ runs:
         cache: true
         install: true
 
+    - run: corepack enable
+      shell: bash
+
     - uses: actions/cache@v3
       id: asdf-cache
       with:
