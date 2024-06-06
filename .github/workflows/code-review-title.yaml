@@ -14,10 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: ./.github/actions/setup-tooling
+      # - uses: ./.github/actions/setup-tooling
+      #   with:
+      #     SetupCommand: ./setup.sh
+      # - uses: ./.github/actions/setup-yarn
+
+      - uses: jdx/mise-action@v2
         with:
-          SetupCommand: ./setup.sh
-      - uses: ./.github/actions/setup-yarn
+          cache: true
+          install: true
       - uses: ./.github/actions/commitlint-prtitle
         with:
           InstallCommitLint: false
