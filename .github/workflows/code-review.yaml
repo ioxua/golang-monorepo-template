@@ -32,11 +32,16 @@ jobs:
         with:
           main-branch-name: main
 
-      - uses: ./.github/actions/setup-tooling
-        with:
-          SetupCommand: ./setup.sh
+      # - uses: ./.github/actions/setup-tooling
+      #   with:
+      #     SetupCommand: ./setup.sh
 
-      - uses: ./.github/actions/setup-yarn
+      # - uses: ./.github/actions/setup-yarn
+
+      - uses: jdx/mise-action@v2
+        with:
+          cache: true
+          install: true
 
       - run: just nx workspace-lint
 
