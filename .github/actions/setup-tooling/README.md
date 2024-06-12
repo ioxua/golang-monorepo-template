@@ -10,22 +10,20 @@ Installs ASDF with plugins
 ## Usage
 
 ```yml
-  Release:
+Release:
+  runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
+  permissions:
+    contents: write
+    deployments: write
 
-    permissions:
-      contents: write
-      deployments: write
+  steps:
+    - uses: actions/checkout@v4
 
-    steps:
-
-      - uses: actions/checkout@v3
-
-      - name: Setup tooling
-        uses: ./pkg/ci/setup-tooling
-        env:
-          ASDF_PLUGIN_URL_something: https://get.thething/asdf-plugin
+    - name: Setup tooling
+      uses: ./pkg/ci/setup-tooling
+      env:
+        ASDF_PLUGIN_URL_something: https://get.thething/asdf-plugin
 ```
 
 - installs asdf plugins for each item listed in your `.tools-version`
@@ -37,16 +35,14 @@ Installs ASDF with plugins
 with your own version of the setup command:
 
 ```yml
-  Release:
+Release:
+  runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
 
-    steps:
-
-      - uses: actions/checkout@v3
-
-      - name: Setup tooling
-        uses: ./pkg/ci/setup-tooling
-        with:
-          SetupCommand: ./your/tools/an-executable.bash
+    - name: Setup tooling
+      uses: ./pkg/ci/setup-tooling
+      with:
+        SetupCommand: ./your/tools/an-executable.bash
 ```
