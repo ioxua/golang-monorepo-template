@@ -36,6 +36,9 @@ jobs:
       # - uses: ./.github/actions/setup-tooling
       - uses: ./.github/actions/setup-yarn
 
+      - name: Install dependencies
+        run: yarn install
+
       # - run: just nx workspace-lint
 
       - run: just lint affected --parallel=3
