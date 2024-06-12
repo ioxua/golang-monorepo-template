@@ -1,76 +1,32 @@
 {
   "migrations": [
     {
-      "cli": "nx",
-      "version": "16.8.0-beta.3",
-      "description": "Escape $ in env variables",
-      "implementation": "./src/migrations/update-16-8-0/escape-dollar-sign-env-variables",
-      "x-repair-skip": true,
-      "package": "nx",
-      "name": "16.8.0-escape-dollar-sign-env"
+      "version": "3.0.0-beta.0",
+      "description": "Add Nx Go plugin to Nx workspace configuration",
+      "implementation": "./src/migrations/update-3.0.0/add-nx-go-plugin",
+      "package": "@nx-go/nx-go",
+      "name": "add-nx-go-plugin"
     },
     {
-      "cli": "nx",
-      "version": "17.0.0-beta.1",
-      "description": "Updates the default cache directory to .nx/cache",
-      "implementation": "./src/migrations/update-17-0-0/move-cache-directory",
-      "package": "nx",
-      "name": "17.0.0-move-cache-directory"
+      "version": "3.0.0-beta.0",
+      "description": "Add Go config in shared globals",
+      "implementation": "./src/migrations/update-3.0.0/add-go-config-in-shared-globals",
+      "package": "@nx-go/nx-go",
+      "name": "add-go-config-in-shared-globals"
     },
     {
-      "cli": "nx",
-      "version": "17.0.0-beta.3",
-      "description": "Use minimal config for tasksRunnerOptions",
-      "implementation": "./src/migrations/update-17-0-0/use-minimal-config-for-tasks-runner-options",
-      "package": "nx",
-      "name": "17.0.0-use-minimal-config-for-tasks-runner-options"
+      "version": "3.0.0-beta.1",
+      "description": "Update options to match new schema of executors",
+      "implementation": "./src/migrations/update-3.0.0/update-executors-options",
+      "package": "@nx-go/nx-go",
+      "name": "update-executors-options"
     },
     {
-      "version": "17.0.0-rc.1",
-      "description": "Migration for v17.0.0-rc.1",
-      "implementation": "./src/migrations/update-17-0-0/rm-default-collection-npm-scope",
-      "package": "nx",
-      "name": "rm-default-collection-npm-scope"
-    },
-    {
-      "cli": "nx",
-      "version": "17.3.0-beta.6",
-      "description": "Updates the nx wrapper.",
-      "implementation": "./src/migrations/update-17-3-0/update-nxw",
-      "package": "nx",
-      "name": "17.3.0-update-nx-wrapper"
-    },
-    {
-      "cli": "nx",
-      "version": "18.0.0-beta.2",
-      "description": "Updates nx.json to disabled adding plugins when generating projects in an existing Nx workspace",
-      "implementation": "./src/migrations/update-18-0-0/disable-crystal-for-existing-workspaces",
-      "x-repair-skip": true,
-      "package": "nx",
-      "name": "18.0.0-disable-adding-plugins-for-existing-workspaces"
-    },
-    {
-      "version": "18.1.0-beta.3",
-      "description": "Moves affected.defaultBase to defaultBase in `nx.json`",
-      "implementation": "./src/migrations/update-17-2-0/move-default-base",
-      "package": "nx",
-      "name": "move-default-base-to-nx-json-root"
-    },
-    {
-      "cli": "nx",
-      "version": "19.2.0-beta.2",
-      "description": "Updates the default workspace data directory to .nx/workspace-data",
-      "implementation": "./src/migrations/update-19-2-0/move-workspace-data-directory",
-      "package": "nx",
-      "name": "19-2-0-move-graph-cache-directory"
-    },
-    {
-      "cli": "nx",
-      "version": "19.2.2-beta.0",
-      "description": "Updates the nx wrapper.",
-      "implementation": "./src/migrations/update-17-3-0/update-nxw",
-      "package": "nx",
-      "name": "19-2-2-update-nx-wrapper"
+      "version": "3.1.0",
+      "description": "Add tidy target to libraries and applications",
+      "implementation": "./src/migrations/update-3.1.0/add-tidy-target-to-libraries-and-applications",
+      "package": "@nx-go/nx-go",
+      "name": "add-tidy-targets"
     }
   ]
 }
