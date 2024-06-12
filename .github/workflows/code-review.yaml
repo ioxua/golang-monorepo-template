@@ -32,7 +32,7 @@ jobs:
         with:
           main-branch-name: main
 
-      - uses: ./.github/actions/setup-tooling
+      # - uses: ./.github/actions/setup-tooling
       - uses: ./.github/actions/setup-yarn
 
       # - run: just nx workspace-lint
