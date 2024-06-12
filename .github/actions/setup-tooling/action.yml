@@ -1,12 +1,5 @@
-name: Setup Asdf
-
-description: provisions tooling
-
-# inputs:
-#   SetupCommand:
-#     description: 'Command to run'
-#     required: false
-#     default: './setup.bash'
+name: Setup Tooling
+description: Installs dependencies for tooling (nx, yarn, corepack)
 
 runs:
   using: 'composite'
