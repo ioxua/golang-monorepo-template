@@ -22,7 +22,7 @@ jobs:
       ChangedProjects: ${{ steps.interrogate.outputs.ChangedProjects }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -65,7 +65,7 @@ jobs:
           config-file: devops/release-please-config.json
           manifest-file: devops/release-please-manifest.json
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         if: ${{ steps.tag-release.outputs.releases_created == 'true' }}
 
   Release:

@@ -20,8 +20,7 @@ jobs:
       checks: read
 
     steps:
-      - uses: extractions/setup-just@v2
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           # By default, PRs will be checked-out based on the Merge Commit, but we want the actual branch HEAD.
           ref: ${{ github.event.pull_request.head.sha }}

@@ -8,9 +8,8 @@ We have stored in our Secrets two entries relating to our Service Bot:
 - `BOT_GIT_NAME` the name that is used to author commits
 
 Github treats the authoring information in commits with special regard, so in
-some cases it's important that some commits appear to be authored by our 
+some cases it's important that some commits appear to be authored by our
 Service Bot.
-
 
 ## Requirements
 
@@ -18,7 +17,7 @@ You **must** inform the `actions/checkout` action that it should not
 persist credentials.
 
 ```yml
-uses: actions/checkout@v3
+uses: actions/checkout@v4
   with:
     persist-credentials: false
 ```
