@@ -21,10 +21,10 @@ this repo to the original:
 1. GH Actions were updated to their most recent versions;
 2. NX dependencies were also updated;
 3. Multiple tools were replaced:
-   - `asdf` -> `mise`
-   - `just` -> REMOVED?
-   - `yarn` -> `corepack yarn`
+   - `asdf` -> `mise` (optional)
+   - `yarn` -> `corepack yarn` (optional)
    - `prettier` -> REMOVED?
+   - `./setup.sh` -> REMOVED!
 
 # Usage
 
