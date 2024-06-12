@@ -5,6 +5,7 @@
     "golang.go",
     "eamodio.gitlens",
     "nguyenngoclong.asdf",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "github.vscode-github-actions"
   ]
 }

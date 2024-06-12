@@ -7,6 +7,13 @@
 #  ./pkg/setup-tooling/setup.bash
 #
 
+#TODO(ioxua): fix this script
+echo "this script must be updated! it was written for asdf 0.8, which used a binary executable
+  exiting...
+"
+
+exit 1
+
 set -e
 
 [ $(command -v git) ] || {
@@ -19,7 +26,7 @@ set -e
 }
 
 # Local vars
-ASDF_VERSION=${ASDF_VERSION:-v0.8.1}
+ASDF_VERSION=${ASDF_VERSION:-v0.14.0}
 ASDF_HOME=$HOME/.asdf
 ASDF_BIN=$ASDF_HOME/asdf.sh
 
@@ -47,6 +54,7 @@ esac
 
 echo "=> 💁 [ASDF] install with plugins"
 
+# this check doesn't work anymore. Will cause the installation of asdf 0.8
 if [ ! -f "$ASDF_BIN" ]; then
   echo "===> ⤵️ ASDF not detected ... installing"
   git clone https://github.com/asdf-vm/asdf.git "$ASDF_HOME" --branch $ASDF_VERSION
@@ -68,6 +76,7 @@ do
     echo "===> 📦 attempting upgrade"
     asdf plugin-update "${plugin}"
   else
+    # I'm not sure these installation vars work either...
     echo "===> 🌐 installing"
     plugin_url_var=ASDF_PLUGIN_URL_${plugin//-/_}
     plugin_url="${!plugin_url_var}"

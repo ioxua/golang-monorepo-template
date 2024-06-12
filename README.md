@@ -6,12 +6,24 @@ A Golang monorepo using nx.dev
 - packages are in `packages`
 - build artifacts are in `dist/`
 
-# Setup
+## Setup
 
 1. Clone repo
+2. Enable [corepack][corepack]
 2. `./setup.sh` (this installs [asdf](https://asdf-vm.com/) and any plugins in `.tool-versions`, then installs the described tools)
 3. `just help`
 
+## Changes
+
+Multiple changes have been implemented when comparing
+this repo to the original:
+
+1. GH Actions were updated to their most recent versions;
+2. Multiple tools were replaced:
+    - `asdf` -> `mise`
+    - `just` -> REMOVED?
+    - `yarn` -> `corepack yarn`
+    - `prettier` -> REMOVED?
 
 # Usage
 
@@ -55,3 +67,4 @@ $ just nx ...
 
 You're free to execute nx commands directly `./node_modules/nx ...`
 
+[corepack]: https://nodejs.org/api/corepack.html
