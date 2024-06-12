@@ -40,7 +40,7 @@ jobs:
 
       - run: echo "::add-matcher::./.github/problem-matchers/go.json"
 
-      - uses: ./.github/actions/setup-os
+      - uses: ./.github/actions/setup-build
       - run: just test affected --parallel=3 --ci --code-coverage
       - run: just build affected --parallel=3
 
