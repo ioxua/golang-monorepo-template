@@ -12,38 +12,11 @@ runs:
   using: 'composite'
 
   steps:
-    - uses: jdx/mise-action@v2
-      with:
-        cache: true
-        install: true
-
-    - run: corepack enable
+    - uses: extractions/setup-just@v2
+    - name: Enable Corepack
+      run: corepack enable
       shell: bash
-
-    - uses: actions/cache@v3
-      id: asdf-cache
+    - uses: actions/setup-node@v4
       with:
-        path: ~/.asdf
-        key: ${{ runner.os }}-asdf-${{ hashFiles('**/.tool-versions') }}
-        restore-keys: |
-          ${{ runner.os }}-asdf-
-
-    - uses: asdf-vm/actions/install@v3.0.2
-      if: steps.asdf-cache.outputs.cache-hit != 'true'
-
-    # - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
-    #   if: steps.asdf-cache.outputs.cache-hit != 'true'
-    #   shell: bash
-
-    # - name: asdf install
-    #   if: steps.asdf-cache.outputs.cache-hit != 'true'
-    #   shell: bash
-    #   env:
-    #     SETUP_COMMAND: ${{inputs.SetupCommand}}
-    #   run: ${SETUP_COMMAND}
-
-    # - name: set asdf path
-    #   shell: bash
-    #   run: |
-    #     echo "$HOME/.asdf/bin" >> $GITHUB_PATH
-    #     echo "$HOME/.asdf/shims" >> $GITHUB_PATH
+        node-version-file: .tool-versions
+        cache: 'yarn'

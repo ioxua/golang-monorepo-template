@@ -32,13 +32,9 @@ jobs:
         with:
           main-branch-name: main
 
-      # - uses: ./.github/actions/setup-tooling
-      - uses: ./.github/actions/setup-yarn
-
+      - uses: ./.github/actions/setup-tooling
       - name: Install dependencies
         run: yarn install
-
-      # - run: just nx workspace-lint
 
       - run: just lint affected --parallel=3
 

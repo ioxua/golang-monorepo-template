@@ -27,10 +27,7 @@ jobs:
           fetch-depth: 0
 
       - uses: ./.github/actions/setup-tooling
-        with:
-          SetupCommand: ./setup.sh
-      - uses: ./.github/actions/setup-yarn
-      - uses: ./.github/actions/setup-golang
+      - uses: ./.github/actions/setup-build
 
       - id: interrogate
         uses: ./.github/actions/nx-release-please
