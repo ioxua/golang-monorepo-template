@@ -12,12 +12,11 @@ jobs:
   VerifyPrTitle:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: ./.github/actions/setup-tooling
-        with:
-          SetupCommand: ./setup.sh
       - uses: ./.github/actions/setup-yarn
+
       - uses: ./.github/actions/commitlint-prtitle
         with:
           InstallCommitLint: false

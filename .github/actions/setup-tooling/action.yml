@@ -1,51 +1,15 @@
-name: Setup Asdf
-
-description: provisions tooling
-
-inputs:
-  SetupCommand:
-    description: "Command to run"
-    required: false
-    default: './setup.bash'
+name: Setup Tooling
+description: Installs dependencies for tooling (nx, yarn, corepack)
 
 runs:
-  using: "composite"
+  using: 'composite'
 
   steps:
-    # - name: Ensure setup command available
-    #   shell: bash
-    #   env:
-    #     SETUP_COMMAND: ${{inputs.SetupCommand}}
-    #   run: |
-    #     if [ ! -f ${SETUP_COMMAND} ]; then
-    #       echo "🛑 Missing action input SetupCommand."
-    #       exit 1
-    #     fi
-
-    - uses: actions/cache@v3
-      id: asdf-cache
+    - uses: extractions/setup-just@v2
+    - name: Enable Corepack
+      run: corepack enable
+      shell: bash
+    - uses: actions/setup-node@v4
       with:
-        path: ~/.asdf
-        key: ${{ runner.os }}-asdf-${{ hashFiles('**/.tool-versions') }}
-        restore-keys: |
-          ${{ runner.os }}-asdf-
-
-    - uses: asdf-vm/actions/install@v3.0.2
-      if: steps.asdf-cache.outputs.cache-hit != 'true'
-
-    # - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
-    #   if: steps.asdf-cache.outputs.cache-hit != 'true'
-    #   shell: bash
-
-    # - name: asdf install
-    #   if: steps.asdf-cache.outputs.cache-hit != 'true'
-    #   shell: bash
-    #   env:
-    #     SETUP_COMMAND: ${{inputs.SetupCommand}}
-    #   run: ${SETUP_COMMAND}
-
-    # - name: set asdf path
-    #   shell: bash
-    #   run: |
-    #     echo "$HOME/.asdf/bin" >> $GITHUB_PATH
-    #     echo "$HOME/.asdf/shims" >> $GITHUB_PATH
+        node-version-file: .tool-versions
+        cache: 'yarn'

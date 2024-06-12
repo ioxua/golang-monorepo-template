@@ -20,7 +20,7 @@ jobs:
       checks: read
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           # By default, PRs will be checked-out based on the Merge Commit, but we want the actual branch HEAD.
           ref: ${{ github.event.pull_request.head.sha }}
@@ -33,18 +33,14 @@ jobs:
           main-branch-name: main
 
       - uses: ./.github/actions/setup-tooling
-        with:
-          SetupCommand: ./setup.sh
-
-      - uses: ./.github/actions/setup-yarn
-
-      - run: just nx workspace-lint
+      - name: Install dependencies
+        run: yarn install
 
       - run: just lint affected --parallel=3
 
       - run: echo "::add-matcher::./.github/problem-matchers/go.json"
 
-      - uses: ./.github/actions/setup-os
+      - uses: ./.github/actions/setup-build
       - run: just test affected --parallel=3 --ci --code-coverage
       - run: just build affected --parallel=3
 

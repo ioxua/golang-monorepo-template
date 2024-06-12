@@ -1,0 +1,32 @@
+{
+  "migrations": [
+    {
+      "version": "3.0.0-beta.0",
+      "description": "Add Nx Go plugin to Nx workspace configuration",
+      "implementation": "./src/migrations/update-3.0.0/add-nx-go-plugin",
+      "package": "@nx-go/nx-go",
+      "name": "add-nx-go-plugin"
+    },
+    {
+      "version": "3.0.0-beta.0",
+      "description": "Add Go config in shared globals",
+      "implementation": "./src/migrations/update-3.0.0/add-go-config-in-shared-globals",
+      "package": "@nx-go/nx-go",
+      "name": "add-go-config-in-shared-globals"
+    },
+    {
+      "version": "3.0.0-beta.1",
+      "description": "Update options to match new schema of executors",
+      "implementation": "./src/migrations/update-3.0.0/update-executors-options",
+      "package": "@nx-go/nx-go",
+      "name": "update-executors-options"
+    },
+    {
+      "version": "3.1.0",
+      "description": "Add tidy target to libraries and applications",
+      "implementation": "./src/migrations/update-3.1.0/add-tidy-target-to-libraries-and-applications",
+      "package": "@nx-go/nx-go",
+      "name": "add-tidy-targets"
+    }
+  ]
+}

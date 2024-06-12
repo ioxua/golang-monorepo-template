@@ -1,0 +1,18 @@
+name: Setup Build
+description: Installs dependencies for project build
+
+env:
+  GOTOOLCHAIN: local
+
+runs:
+  using: 'composite'
+
+  steps:
+    # See https://github.com/actions/setup-go/issues/424#issuecomment-2044454425
+    - name: Configure env for toolchain ignore
+      shell: bash
+      run: echo "GOTOOLCHAIN=local" >> "$GITHUB_ENV"
+
+    - uses: actions/setup-go@v5
+      with:
+        go-version-file: 'go.mod'
