@@ -1,6 +1,9 @@
 name: Setup Build
 description: Installs dependencies for project build
 
+env:
+  GOTOOLCHAIN: local
+
 runs:
   using: 'composite'
 
