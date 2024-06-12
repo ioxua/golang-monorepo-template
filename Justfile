@@ -52,10 +52,6 @@ typecheck project="affected":
     corepack yarn nx {{project}} \
     --target=typecheck
 
-# ensure nx workspace is good
-workspacelint:
-    corepack yarn nx workspace-lint
-
 # run all pullrequest checks
 prcheck: lint test typecheck
 
@@ -72,7 +68,6 @@ tidy:
 pr-check:
     @echo "👨‍⚕️ Checking PR"
     just tidy
-    just workspacelint
     just lint
     just test
     just typecheck
