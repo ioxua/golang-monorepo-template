@@ -720,15 +720,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nrwl/nx-cloud@npm:19.0.0":
-  version: 19.0.0
-  resolution: "@nrwl/nx-cloud@npm:19.0.0"
-  dependencies:
-    nx-cloud: "npm:19.0.0"
-  checksum: 10/2f519b935492e8718b22385ef31cf86204606118fe688170d977638567a5625e2ed5844b043f149bf0b888a1f2ac04b3b30f1c66686925779e7ae06d91cff81a
-  languageName: node
-  linkType: hard
-
 "@nrwl/tao@npm:19.2.3":
   version: 19.2.3
   resolution: "@nrwl/tao@npm:19.2.3"
@@ -2433,13 +2424,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:~10.0.0":
-  version: 10.0.0
-  resolution: "dotenv@npm:10.0.0"
-  checksum: 10/55f701ae213e3afe3f4232fae5edfb6e0c49f061a363ff9f1c5a0c2bf3fb990a6e49aeada11b2a116efb5fdc3bc3f1ef55ab330be43033410b267f7c0809a9dc
-  languageName: node
-  linkType: hard
-
 "dotenv@npm:~16.3.1":
   version: 16.3.1
   resolution: "dotenv@npm:16.3.1"
@@ -3117,7 +3101,6 @@ __metadata:
     "@typed-actions/github-script": "npm:1.0.1"
     husky: "npm:^9.0.11"
     nx: "npm:19.2.3"
-    nx-cloud: "npm:19.0.0"
     prettier: "npm:^3.3.0"
     release-please: "npm:13.18.5"
     syncpack: "npm:11.2.1"
@@ -4574,13 +4557,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minipass@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "minipass@npm:5.0.0"
-  checksum: 10/61682162d29f45d3152b78b08bab7fb32ca10899bc5991ffe98afc18c9e9543bd1e3be94f8b8373ba6262497db63607079dc242ea62e43e7b2270837b7347c93
-  languageName: node
-  linkType: hard
-
 "minizlib@npm:^2.1.1, minizlib@npm:^2.1.2":
   version: 2.1.2
   resolution: "minizlib@npm:2.1.2"
@@ -4720,7 +4696,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-machine-id@npm:1.1.12, node-machine-id@npm:^1.1.12":
+"node-machine-id@npm:1.1.12":
   version: 1.1.12
   resolution: "node-machine-id@npm:1.1.12"
   checksum: 10/46bf3d4fab8d0e63b24c42bcec2b6975c7ec5bc16e53d7a589d095668d0fdf0bfcbcdc28246dd1ef74cf95a37fbd774cd4b17b41f518d79dfad7fdc99f995903
@@ -5047,26 +5023,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nx-cloud@npm:19.0.0":
-  version: 19.0.0
-  resolution: "nx-cloud@npm:19.0.0"
-  dependencies:
-    "@nrwl/nx-cloud": "npm:19.0.0"
-    axios: "npm:^1.6.0"
-    chalk: "npm:^4.1.0"
-    dotenv: "npm:~10.0.0"
-    fs-extra: "npm:^11.1.0"
-    node-machine-id: "npm:^1.1.12"
-    open: "npm:~8.4.0"
-    strip-json-comments: "npm:^3.1.1"
-    tar: "npm:6.2.1"
-    yargs-parser: "npm:>=21.1.1"
-  bin:
-    nx-cloud: bin/nx-cloud.js
-  checksum: 10/335beeb87d11728a72d6f95ae4bd128b50a63ba8f814940c33ee15411521d76554a2bbc73b2ae9869e7bb5f22576fbb47e14b829da22efdd0540935b1813c036
-  languageName: node
-  linkType: hard
-
 "nx@npm:19.2.3":
   version: 19.2.3
   resolution: "nx@npm:19.2.3"
@@ -5193,17 +5149,6 @@ __metadata:
     is-docker: "npm:^2.1.1"
     is-wsl: "npm:^2.2.0"
   checksum: 10/ccb8760068b48e277868423cdf21f4f4e5682ec86dbc3a5cf1c34ef0e8b49721ad98b3f001b4eb2cbd7df7921f84551ec5b9fecace3b3eced3e46dca1c785f03
-  languageName: node
-  linkType: hard
-
-"open@npm:~8.4.0":
-  version: 8.4.2
-  resolution: "open@npm:8.4.2"
-  dependencies:
-    define-lazy-prop: "npm:^2.0.0"
-    is-docker: "npm:^2.1.1"
-    is-wsl: "npm:^2.2.0"
-  checksum: 10/acd81a1d19879c818acb3af2d2e8e9d81d17b5367561e623248133deb7dd3aefaed527531df2677d3e6aaf0199f84df57b6b2262babff8bf46ea0029aac536c9
   languageName: node
   linkType: hard
 
@@ -6526,13 +6471,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-json-comments@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "strip-json-comments@npm:3.1.1"
-  checksum: 10/492f73e27268f9b1c122733f28ecb0e7e8d8a531a6662efbd08e22cccb3f9475e90a1b82cab06a392f6afae6d2de636f977e231296400d0ec5304ba70f166443
-  languageName: node
-  linkType: hard
-
 "strip-json-comments@npm:~2.0.1":
   version: 2.0.1
   resolution: "strip-json-comments@npm:2.0.1"
@@ -6648,20 +6586,6 @@ __metadata:
     mkdirp: "npm:^1.0.3"
     yallist: "npm:^4.0.0"
   checksum: 10/0e6789e66475922b8e0d1ee648cb26e0ede9a0635284269ca71b2d8acd507bc59ad5557032f0192f8ff22680b50cb66792b56f0240f484fe0d7d8cef81c1b959
-  languageName: node
-  linkType: hard
-
-"tar@npm:6.2.1":
-  version: 6.2.1
-  resolution: "tar@npm:6.2.1"
-  dependencies:
-    chownr: "npm:^2.0.0"
-    fs-minipass: "npm:^2.0.0"
-    minipass: "npm:^5.0.0"
-    minizlib: "npm:^2.1.1"
-    mkdirp: "npm:^1.0.3"
-    yallist: "npm:^4.0.0"
-  checksum: 10/bfbfbb2861888077fc1130b84029cdc2721efb93d1d1fb80f22a7ac3a98ec6f8972f29e564103bbebf5e97be67ebc356d37fa48dbc4960600a1eb7230fbd1ea0
   languageName: node
   linkType: hard
 
@@ -7267,7 +7191,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:21.1.1, yargs-parser@npm:>=21.1.1, yargs-parser@npm:^21.1.1":
+"yargs-parser@npm:21.1.1, yargs-parser@npm:^21.1.1":
   version: 21.1.1
   resolution: "yargs-parser@npm:21.1.1"
   checksum: 10/9dc2c217ea3bf8d858041252d43e074f7166b53f3d010a8c711275e09cd3d62a002969a39858b92bbda2a6a63a585c7127014534a560b9c69ed2d923d113406e

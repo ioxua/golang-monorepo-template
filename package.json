@@ -13,7 +13,6 @@
     "@typed-actions/github-script": "1.0.1",
     "husky": "^9.0.11",
     "nx": "19.2.3",
-    "nx-cloud": "19.0.0",
     "prettier": "^3.3.0",
     "release-please": "13.18.5",
     "syncpack": "11.2.1",
