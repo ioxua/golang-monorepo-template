@@ -10,8 +10,8 @@ A Golang monorepo using nx.dev
 
 1. Clone repo
 2. Enable [corepack][corepack]
-2. `./setup.sh` (this installs [asdf](https://asdf-vm.com/) and any plugins in `.tool-versions`, then installs the described tools)
-3. `just help`
+3. `./setup.sh` (this installs [asdf](https://asdf-vm.com/) and any plugins in `.tool-versions`, then installs the described tools)
+4. `just help`
 
 ## Changes
 
@@ -19,11 +19,12 @@ Multiple changes have been implemented when comparing
 this repo to the original:
 
 1. GH Actions were updated to their most recent versions;
-2. Multiple tools were replaced:
-    - `asdf` -> `mise`
-    - `just` -> REMOVED?
-    - `yarn` -> `corepack yarn`
-    - `prettier` -> REMOVED?
+2. NX dependencies were also updated;
+3. Multiple tools were replaced:
+   - `asdf` -> `mise`
+   - `just` -> REMOVED?
+   - `yarn` -> `corepack yarn`
+   - `prettier` -> REMOVED?
 
 # Usage
 
@@ -37,7 +38,6 @@ $ just help
 2. add nodejs deps only to root `package.json`
 3. add go deps to individual `go.mod`
 4. run `just pr-check`
-
 
 ## Running Apps
 
